@@ -11,7 +11,7 @@ private:
 public:
     void push(int x) {
         d.push_back(x);
-        int min;
+        int min;``
         if( mind.size() <= 0)
             min = 0x7fffffff;
         else
