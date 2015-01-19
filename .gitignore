@@ -1,5 +1,9 @@
 # Windeows exe
 *.exe
+*.png
+*.txt
+*.dot
+*.out
 
 # Windows image file caches
 Thumbs.db
