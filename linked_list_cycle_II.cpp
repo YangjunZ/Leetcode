@@ -3,6 +3,8 @@
 using namespace std;
 // https://oj.leetcode.com/problems/linked-list-cycle-ii/
 //detect cycle, if exist, return the cycle starting node, or return NULL 
+//for cycle circumference is m, slow start at head, fast start at head next node. slow and fast meet at x+1 node with constrains (2x+2 - (x-1)) mod m = 0; x= m-1 + am > the length from head to first crossing node. 
+//to get the first crossing node, cur start at head. slow start at x+1, then they meet at y+1, with constrain (x+1+y - (y+1)) mod m =0, that means x mod m =0, impossible. that (x+1+y+a -(y-1)) mod m = 0. then a = 1. thus slow should start at next node after x+1.
 
 struct ListNode {
 	int val;
