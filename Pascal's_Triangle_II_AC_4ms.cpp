@@ -2,8 +2,7 @@
 #include <vector>
 
 using namespace std;
-// https://oj.leetcode.com/problems/pascals-triangle/
-
+// https://oj.leetcode.com/problems/pascals-triangle-ii/
 
 class Solution
 {
