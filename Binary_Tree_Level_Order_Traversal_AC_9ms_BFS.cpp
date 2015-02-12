@@ -20,7 +20,7 @@ struct TreeNode {
 class Solution
 {
 public:
-	vector<vector<int> > zigzagLevelOrder( TreeNode *root )
+	vector<vector<int> > levelOrder( TreeNode *root )
 	{
 		vector< vector<int> > res;
 		if ( root == NULL )
@@ -75,7 +75,7 @@ int main( int argc, char const *argv[] )
 	tn4.right = &tn5;
 	tn4.left = &tn6;
 	Solution ss;
-	print(ss.zigzagLevelOrder( &tn1) );
+	print(ss.levelOrder( &tn1) );
 	cout << "hello world" << endl;
 	return 0;
 }

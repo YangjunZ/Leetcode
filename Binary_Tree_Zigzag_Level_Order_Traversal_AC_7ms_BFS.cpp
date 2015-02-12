@@ -20,7 +20,7 @@ struct TreeNode {
 class Solution
 {
 public:
-	vector<vector<int> > levelOrderBottom( TreeNode *root )
+	vector<vector<int> > zigzagLevelOrder( TreeNode *root )
 	{
 		vector< vector<int> > res;
 		if ( root == NULL )
@@ -46,36 +46,39 @@ public:
 			}
 		}
 
-		vector< vector<int>> re_res;
-		for(int i = res.size()-1;i>=0; --i)
-			re_res.push_back(res[i]);
-		return re_res;
+		for ( int i = 1; i < res.size(); i += 2 ) {
+			vector<int> tmp;
+			for ( int j = res[i].size() - 1; j >= 0; --j )
+				tmp.push_back( res[i][j] );
+			res[i] = tmp;
+		}
+		return res;
 
 	}
 };
 
 
 void print( vector< vector<int>> vv )
-{	
-	cout << "["<<endl;
-	for(int i=0; i<vv.size(); ++i){
-		cout <<"[";
-		for( int j=0; j<vv[i].size(); ++j)
-			cout <<vv[i][j]<<",";
-		cout << "],"<<endl;
+{
+	cout << "[" << endl;
+	for ( int i = 0; i < vv.size(); ++i ) {
+		cout << "[";
+		for ( int j = 0; j < vv[i].size(); ++j )
+			cout << vv[i][j] << ",";
+		cout << "]," << endl;
 	}
-	cout <<"]"<<endl;
+	cout << "]" << endl;
 }
 int main( int argc, char const *argv[] )
 {
-	TreeNode tn1(1), tn2(2), tn3(3), tn4(4), tn5(5), tn6(6);
+	TreeNode tn1( 1 ), tn2( 2 ), tn3( 3 ), tn4( 4 ), tn5( 5 ), tn6( 6 );
 	tn1.left = & tn2;
 	tn2.right = &tn3;
 	tn1.right = &tn4;
 	tn4.right = &tn5;
 	tn4.left = &tn6;
 	Solution ss;
-	print(ss.levelOrderBottom( &tn1) );
+	print( ss.zigzagLevelOrder( &tn1 ) );
 	cout << "hello world" << endl;
 	return 0;
 }
