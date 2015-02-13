@@ -10,7 +10,7 @@ public:
 	int numTrees( int n )
 	{
 		//a[i] store the number of unique binary search trees with value 1..i,
-		//a[0] = 0,a[1]=1, a[n]= 2* a[n-1]+ sigma( a[i]* a[n-1-i])
+		//a[0] = 0,a[1]=1, a[n]= 2* a[n-1]+ sigma( a[i]* a[n-1-i]),i=1..n-2
 		//for 2*a[n-1], add n to the top or right position of a[n-1] BST.
 		//for sigma(a[i]*a[n-1-i]), tree is constructed by 1..i, n, i+1..n-1
 		// an = 2*an-1 + (n-2)
