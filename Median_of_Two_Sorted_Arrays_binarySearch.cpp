@@ -8,7 +8,7 @@ class Solution
 {
 public:
 
-	double findKth( int A[], int m, int B[], int n, int k )
+	int findKth( int A[], int m, int B[], int n, int k )
 	{
 		//find the unuseable part
 		if ( m == 0 )
@@ -31,13 +31,12 @@ public:
 				return findKth( A, a, B, n, k );
 			}
 		}
-
 	}
 
 	double findMedianSortedArrays( int A[], int m, int B[], int n )
 	{
 		//odd, return Arr[k] ,(len = 2k+1), else return (Arr[k-1]+Arr[k])/2, (len=2k)
-		int k = ( m + n ) / 2;
+		int k = ( m + n + 1) / 2; //rank from 1 to m + n
 		int val1 = findKth( A, m, B, n, k );		
 		if ( ( m + n ) % 2 == 0 ) {
 			return double( findKth( A, m, B, n, k + 1 ) + val1 ) / 2;
